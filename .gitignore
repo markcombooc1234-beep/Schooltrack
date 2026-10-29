@@ -1,0 +1,16 @@
+# Local database credentials and environment files
+config.local.php
+.env
+.env.*
+!.env.example
+
+# Local tools, logs, exports, and database backups
+*.log
+*.dump
+*.sql.gz
+*.bak
+*.zip
+/vendor/
+/node_modules/
+.DS_Store
+Thumbs.db

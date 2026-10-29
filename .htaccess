@@ -1,0 +1,7 @@
+Options -Indexes
+<FilesMatch "^(config(?:\.local|\.example)?\.php|README\.md|\.env.*)$">
+Require all denied
+</FilesMatch>
+<IfModule mod_alias.c>
+RedirectMatch 404 /\.git(?:/|$)
+</IfModule>

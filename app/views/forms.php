@@ -1,0 +1,6 @@
+<?php
+function field(string $name, string $label, $value = '', string $type = 'text', bool $required = true): void { echo '<label>'.e($label).'<input name="'.e($name).'" type="'.e($type).'" value="'.e($value).'" '.($required?'required':'').' '.($type==='number'?'min="0" step="1"':'').' maxlength="255"></label>'; }
+function selectField(string $name,string $label,array $rows,$selected = '',bool $optional=false): void { echo '<label>'.e($label).'<select name="'.e($name).'" '.($optional?'':'required').'>'; echo '<option value="">'.($optional?'None':'Select…').'</option>'; foreach($rows as $r) echo '<option value="'.e($r['id']).'" '.((string)$selected===(string)$r['id']?'selected':'').'>'.e($r['name']).'</option>'; echo '</select></label>'; }
+function startForm(string $action, $id=0): void { echo '<form method="post">'.csrf().'<input type="hidden" name="action" value="'.e($action).'"><input type="hidden" name="id" value="'.e($id).'">'; }
+function endForm(string $label='Save changes'): void { echo '<button>'.e($label).'</button></form>'; }
+function deleteForm(string $action,int $id): void { echo '<form method="post" onsubmit="return confirm(\'Delete this record?\')">'.csrf().'<input type="hidden" name="action" value="'.e($action).'"><input type="hidden" name="id" value="'.$id.'"><button class="danger">Delete</button></form>'; }
